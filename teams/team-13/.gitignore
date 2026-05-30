@@ -1,0 +1,17 @@
+# Environment - contains API keys, never commit this
+.env
+
+# FAISS index (large binary files, regenerated from PDF)
+faiss_index/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Uploaded PDFs (large files)
+regulations/*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
