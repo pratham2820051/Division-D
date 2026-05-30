@@ -1,6 +1,6 @@
 # D13 — Building Plan Compliance Checker
 
-**College:** KLE Technological University, Belagavi  
+**College:** KLE Technological University
 **Domain:** Smart Cities & Infrastructure  
 **Team:** Prajwal Karigoudar | Pratham P Honnappanavar | Abhishek Sonnahali | MD Waseem R Naikar
 
