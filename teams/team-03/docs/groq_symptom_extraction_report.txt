@@ -1,0 +1,126 @@
+PashuMitra AI — Groq Symptom Extraction Report
+==============================================
+Generated: 2026-05-30
+
+Overview
+--------
+Symptom extraction now supports an optional Groq (Llama) backend while keeping
+the existing rule-based extractor as the default and as a runtime fallback.
+
+Architecture
+------------
+Farmer message
+    │
+    ▼
+SymptomExtractionService.extract(message)
+    │
+    ├── USE_GROQ_EXTRACTION=false (default)
+    │       └── RuleBasedSymptomExtractor
+    │
+    └── USE_GROQ_EXTRACTION=true
+            └── GroqSymptomExtractor
+                    ├── GroqClient → Groq API (llama-3.3-70b-versatile)
+                    │       └── JSON: { animal_type, symptoms[] }
+                    └── on any failure → RuleBasedSymptomExtractor (fallback)
+
+Public API contracts are unchanged:
+- SymptomExtractionResult
+- SymptomExtractionService
+- SymptomExtractor protocol
+
+Files changed / added
+---------------------
+Added:
+- backend/features/chat/services/groq_symptom_extractor.py
+- backend/features/chat/tests/test_groq_symptom_extraction.py
+- docs/groq_symptom_extraction_report.txt
+
+Updated:
+- backend/shared/llm/groq_client.py          (Groq HTTP client)
+- backend/features/chat/services/symptom_extraction_service.py
+- backend/config/settings.py                   (use_groq_extraction flag)
+- backend/.env.example
+- backend/features/chat/services/__init__.py
+- backend/features/chat/__init__.py
+
+Environment variables
+---------------------
+Required when USE_GROQ_EXTRACTION=true:
+
+  GROQ_API_KEY=gsk_...                    # Groq API key (required for Groq mode)
+  USE_GROQ_EXTRACTION=true                # Enable Groq extractor
+
+Optional (existing Groq settings):
+
+  GROQ_MODEL=llama-3.3-70b-versatile      # Default Llama model on Groq
+  GROQ_MAX_TOKENS=1024
+  GROQ_TEMPERATURE=0.3                    # Capped at 0.2 during extraction
+
+When USE_GROQ_EXTRACTION=false (default), no Groq key is needed.
+
+Example requests and outputs
+----------------------------
+
+1) English input
+   Message: "My cow has fever and is drooling"
+   Groq JSON:
+   {
+     "animal_type": "cattle",
+     "symptoms": ["fever", "drooling"]
+   }
+   Result:
+   SymptomExtractionResult(animal_type=cattle, symptoms=["fever", "drooling"])
+
+2) Kannada input
+   Message: "ನನ್ನ ಹಸುವಿಗೆ ಜ್ವರ ಇದೆ ಮತ್ತು ಬಾಯಿ ನೀರು ಬರುತ್ತಿದೆ"
+   Groq JSON:
+   {
+     "animal_type": "cattle",
+     "symptoms": ["fever", "drooling"]
+   }
+   Result:
+   SymptomExtractionResult(animal_type=cattle, symptoms=["fever", "drooling"])
+
+3) Hindi input
+   Message: "मेरी गाय को बुखार है और मुंह से लार आ रही है"
+   Groq JSON:
+   {
+     "animal_type": "cattle",
+     "symptoms": ["fever", "drooling"]
+   }
+   Result:
+   SymptomExtractionResult(animal_type=cattle, symptoms=["fever", "drooling"])
+
+4) Fallback on Groq failure
+   Message: "My cow has high fever and is drooling."
+   Groq: timeout / invalid JSON / API error
+   Fallback: RuleBasedSymptomExtractor
+   Result:
+   SymptomExtractionResult(animal_type=cattle, symptoms=["high fever", "drooling"])
+
+Canonical symptom labels
+------------------------
+Groq is prompted to return labels from the rule-based dictionary, e.g.:
+- high fever, fever, drooling, reduced appetite
+- blisters on tongue and gums, swollen painful udder quarter
+- lameness and reluctance to walk, nasal discharge, reduced milk yield
+- … (full list in groq_symptom_extractor.CANONICAL_SYMPTOM_LABELS)
+
+Post-processing maps common KB/LLM variants (e.g. "loss of appetite" →
+"reduced appetite") and applies the same suppression rules as the rule engine
+(e.g. "high fever" suppresses plain "fever").
+
+Testing
+-------
+Run:
+  cd backend && pytest features/chat/tests/test_groq_symptom_extraction.py -q
+  cd backend && pytest features/chat/tests/test_symptom_extraction.py -q
+
+Covers: English, Kannada, Hindi (mocked Groq), malformed JSON, timeout,
+API errors, config flag selection, alias canonicalization, and fallback behavior.
+
+Integration note
+----------------
+ChatOrchestrator already uses SymptomExtractionService() with no constructor
+changes. Set USE_GROQ_EXTRACTION=true in backend/.env to activate Groq in the
+running API without code changes.

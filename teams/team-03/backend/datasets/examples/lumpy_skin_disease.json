@@ -1,0 +1,30 @@
+{
+  "disease_id": "lumpy-skin-disease",
+  "disease_name": "Lumpy Skin Disease",
+  "animal_type": "cattle",
+  "description": "Viral disease transmitted by biting insects, characterized by fever and firm nodules on the skin. Affects cattle and buffalo, with economic impact from reduced milk production, weight loss, and secondary infections of skin lesions.",
+  "symptoms": [
+    "high fever",
+    "firm skin nodules on neck and body",
+    "swollen lymph nodes",
+    "watery eyes and nasal discharge",
+    "loss of appetite",
+    "reduced milk yield",
+    "lameness",
+    "weight loss"
+  ],
+  "critical_symptoms": [
+    "high fever",
+    "firm skin nodules on neck and body",
+    "swollen lymph nodes",
+    "reduced milk yield"
+  ],
+  "first_aid": [
+    "Isolate the animal to reduce insect exposure and limit spread within the herd.",
+    "Apply fly control measures on the farm (clean manure, insecticide as advised locally).",
+    "Keep the animal in shade with fresh water and good-quality forage.",
+    "Do not burst or cut skin nodules; keep lesions clean and dry.",
+    "Contact a veterinarian for supportive care and official reporting if required in your district."
+  ],
+  "severity_level": "high"
+}

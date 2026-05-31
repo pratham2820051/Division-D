@@ -1,0 +1,29 @@
+{
+  "disease_id": "brucellosis",
+  "disease_name": "Brucellosis",
+  "animal_type": "cattle",
+  "description": "Bacterial infection (Brucella) causing reproductive failure, abortion, and chronic illness in cattle and buffalo. Zoonotic: humans can contract it from aborted materials, raw milk, and infected animals. Control relies on testing, culling, and vaccination programs.",
+  "symptoms": [
+    "abortion in late pregnancy",
+    "retained placenta after calving",
+    "infertility and repeat breeding",
+    "swollen joints and lameness",
+    "intermittent fever",
+    "weight loss and poor body condition",
+    "reduced milk yield",
+    "weak calves at birth"
+  ],
+  "critical_symptoms": [
+    "abortion in late pregnancy",
+    "retained placenta after calving",
+    "intermittent fever"
+  ],
+  "first_aid": [
+    "Handle aborted materials and placenta only with gloves; bury or dispose as directed by a veterinarian.",
+    "Isolate aborted animals and separate their milk; do not consume raw milk from suspect animals.",
+    "Avoid assisting calving without protection when reproductive disease is suspected in the herd.",
+    "Record abortion dates and animal IDs for veterinary testing and herd screening.",
+    "Contact a veterinarian for blood testing and official control measures; do not treat alone with antibiotics without diagnosis."
+  ],
+  "severity_level": "high"
+}

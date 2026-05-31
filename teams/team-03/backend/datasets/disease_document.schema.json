@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pashumitra.ai/schemas/disease-document.json",
+  "title": "DiseaseDocument",
+  "description": "Canonical disease record for PashuMitra AI knowledge base ingestion, RAG retrieval, confidence scoring, and triage.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "disease_id",
+    "disease_name",
+    "animal_type",
+    "description",
+    "symptoms",
+    "critical_symptoms",
+    "first_aid",
+    "severity_level"
+  ],
+  "properties": {
+    "disease_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "description": "Stable slug identifier used as the primary key across storage and APIs."
+    },
+    "disease_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Human-readable disease name."
+    },
+    "animal_type": {
+      "type": "string",
+      "enum": ["cattle", "buffalo", "goat", "sheep", "pig", "poultry"],
+      "description": "Primary livestock species for this record."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000,
+      "description": "Clinical summary used for retrieval and farmer-facing context."
+    },
+    "symptoms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "uniqueItems": true,
+      "description": "Observable signs associated with the disease."
+    },
+    "critical_symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "uniqueItems": true,
+      "description": "Symptoms that warrant urgent veterinary escalation; must be a subset of symptoms."
+    },
+    "first_aid": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      },
+      "description": "Immediate, farmer-safe care steps before professional treatment."
+    },
+    "severity_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Baseline severity of the disease in the knowledge base."
+    }
+  }
+}

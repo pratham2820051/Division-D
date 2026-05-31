@@ -1,0 +1,30 @@
+{
+  "disease_id": "mastitis",
+  "disease_name": "Mastitis",
+  "animal_type": "cattle",
+  "description": "Inflammation of the udder, usually caused by bacteria entering through the teat canal during milking or in unhygienic housing. Common in dairy cattle and buffalo; ranges from mild subclinical cases to severe toxic mastitis requiring urgent treatment.",
+  "symptoms": [
+    "swollen painful udder quarter",
+    "hot udder to touch",
+    "abnormal milk with clots or flakes",
+    "watery or bloody milk",
+    "reduced milk yield",
+    "fever",
+    "loss of appetite",
+    "udder hardness after milking"
+  ],
+  "critical_symptoms": [
+    "watery or bloody milk",
+    "swollen painful udder quarter",
+    "hot udder to touch",
+    "fever"
+  ],
+  "first_aid": [
+    "Strip out affected quarters gently and discard abnormal milk safely; do not feed it to calves.",
+    "Apply a clean cold compress to a hot swollen quarter for short periods if the animal allows.",
+    "Ensure clean, dry bedding and milk only with washed hands and clean equipment.",
+    "Withhold milk from the food chain until a veterinarian advises it is safe.",
+    "Call a veterinarian promptly for antibiotics and pain management; severe cases can become systemic quickly."
+  ],
+  "severity_level": "medium"
+}

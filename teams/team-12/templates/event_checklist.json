@@ -1,0 +1,49 @@
+{
+  "phases": [
+    {
+      "phase_name": "Phase 1: Initiation & Conception",
+      "tasks": [
+        "Define event goals and objectives",
+        "Select preferred event date and time",
+        "Set high-level event budget",
+        "Determine target audience and expected guest count"
+      ]
+    },
+    {
+      "phase_name": "Phase 2: Venue & Vendor Sourcing",
+      "tasks": [
+        "Research and select a suitable venue based on location and size",
+        "Establish catering requirements, menus, and select caterer",
+        "Identify and confirm key speakers or panelists",
+        "Review and sign vendor contracts (AV, catering, venue)"
+      ]
+    },
+    {
+      "phase_name": "Phase 3: Logistics & Operational Setup",
+      "tasks": [
+        "Finalize AV, lighting, and sound equipment list",
+        "Establish transport plan and scheduling for speakers and guests",
+        "Plan stage setup, banners, seating, and floor layout",
+        "Organize on-ground staff roles and volunteer timeline"
+      ]
+    },
+    {
+      "phase_name": "Phase 4: Communications & Marketing Outreach",
+      "tasks": [
+        "Draft and send initial guest and speaker invite emails",
+        "Promote event on official social media and email newsletters",
+        "Draft and send event reminders and logistic updates",
+        "Prepare attendee badges, print booklets, and signages"
+      ]
+    },
+    {
+      "phase_name": "Phase 5: Execution & Post-Event Follow-up",
+      "tasks": [
+        "Conduct pre-event dry run and AV setup checks",
+        "Manage guest check-ins and speaker ushering on event day",
+        "Draft and send thank-you emails with follow-up feedback forms",
+        "Conduct post-event budget reconciliation and vendor payouts"
+      ]
+    }
+  ]
+}

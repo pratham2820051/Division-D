@@ -1,0 +1,30 @@
+{
+  "disease_id": "anthrax",
+  "disease_name": "Anthrax",
+  "animal_type": "cattle",
+  "description": "Acute bacterial disease caused by Bacillus anthracis, often associated with contaminated soil after heavy rains or excavation. Can cause sudden death with minimal warning. A zoonotic disease: never open a carcass or handle blood without protection.",
+  "symptoms": [
+    "sudden death without warning",
+    "high fever",
+    "trembling and difficulty standing",
+    "swelling of neck brisket or flanks",
+    "bloody discharge from natural openings",
+    "depression and isolation from herd",
+    "difficulty breathing",
+    "bloated carcass appearance if found dead"
+  ],
+  "critical_symptoms": [
+    "sudden death without warning",
+    "bloody discharge from natural openings",
+    "swelling of neck brisket or flanks",
+    "difficulty breathing"
+  ],
+  "first_aid": [
+    "Do not open, bleed, or butcher any dead animal when anthrax is suspected.",
+    "Isolate live sick animals and keep people and other animals away from the area.",
+    "Mark and protect the site; avoid disturbing soil where animals graze or died.",
+    "Notify government veterinary services immediately for carcass disposal and diagnosis.",
+    "Vaccinate unaffected animals only under official veterinary direction after confirmation."
+  ],
+  "severity_level": "critical"
+}

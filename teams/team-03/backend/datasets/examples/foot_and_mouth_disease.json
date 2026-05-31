@@ -1,0 +1,30 @@
+{
+  "disease_id": "foot-and-mouth-disease",
+  "disease_name": "Foot and Mouth Disease",
+  "animal_type": "cattle",
+  "description": "Highly contagious viral disease of cloven-hoofed animals causing fever, vesicles on the mouth and feet, and severe production loss. Outbreaks spread rapidly through direct contact, contaminated feed, and movement of animals and people between farms.",
+  "symptoms": [
+    "high fever",
+    "blisters on tongue and gums",
+    "blisters on hooves and between digits",
+    "excessive salivation and drooling",
+    "lameness and reluctance to walk",
+    "reduced appetite",
+    "nasal discharge",
+    "drop in milk yield"
+  ],
+  "critical_symptoms": [
+    "blisters on tongue and gums",
+    "blisters on hooves and between digits",
+    "excessive salivation and drooling",
+    "lameness and reluctance to walk"
+  ],
+  "first_aid": [
+    "Isolate the affected animal immediately from the rest of the herd.",
+    "Stop all movement of animals, vehicles, and people off the farm until a veterinarian confirms the situation.",
+    "Provide soft, palatable feed and clean water; avoid forcing the animal to walk on painful hooves.",
+    "Disinfect footwear, tools, and troughs that contacted saliva or blister fluid.",
+    "Notify the nearest government veterinary officer or livestock department without delay."
+  ],
+  "severity_level": "critical"
+}

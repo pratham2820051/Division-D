@@ -1,0 +1,251 @@
+PashuMitra AI — Conversation Integration Audit Report
+Generated: 2026-05-30
+Scope: Voice → STT → Translation → Chat → Memory → Response → Translation → TTS
+
+================================================================================
+1. TARGET PIPELINE
+================================================================================
+
+  Voice Input
+      ↓
+  STT          POST /api/v1/voice/transcribe
+      ↓
+  Translation  POST /api/v1/translation/translate  (optional / locale)
+      ↓
+  Chat         POST /api/v1/chat/{chat_id}/message
+      ↓
+  Memory       InMemoryChatStore + GET /api/v1/chat/{id}
+      ↓
+  Response     ChatOrchestrator → typed assistant blocks
+      ↓
+  Translation  chat/utils/localization.py (non-en replies)
+      ↓
+  TTS          POST /api/v1/voice/speak (client-initiated)
+
+================================================================================
+2. CURRENT ARCHITECTURE (AS-IS AFTER INTEGRATION PASS)
+================================================================================
+
+BACKEND (FastAPI, feature-first)
+--------------------------------
+  main.py mounts:
+    /api/v1/chat/*         Chat CRUD + send_message
+    /api/v1/memory/*       history + context (parallel to chat GET)
+    /api/v1/voice/*        transcribe, speak, synthesize (alias)
+    /api/v1/translation/*  translate
+
+  Chat send path:
+    chat_routes.send_message
+      → chat_service.send_message
+          → memory_service.add_message (user)
+          → memory_service.get_recent_context
+          → chat_orchestrator.process(user, context, language)
+          → localization.localize_blocks (if language != en)
+          → memory_service.add_message (assistant blocks × N)
+
+  Voice / Translation / Memory are NOT invoked from HTTP handlers directly;
+  chat_service now calls translation_service internally via localization.py.
+
+FRONTEND (Next.js)
+------------------
+  Chat UI:
+    ChatInterface → useChatOrchestration → chatService (real API)
+    conversationStore (Zustand + localStorage)
+
+  Voice UI:
+    ChatInput → VoiceMode → useVoiceInput → voiceService.transcribeAudio (real)
+    ChatInput → onVoiceSend → sendVoiceMessage → chat with [voice] prefix
+
+  Translation UI:
+    MessageTranslateMenu → translationService (NOW real API)
+    ChatHeader TranslationDropdown → store.language → chat send + backend localize
+
+  Memory / history:
+    selectConversation → getChatHistory (GET /api/v1/chat/{id}) when synced=true
+    /api/v1/memory/* still unused on frontend (chat GET is sufficient today)
+
+================================================================================
+3. REAL vs MOCK INVENTORY
+================================================================================
+
+COMPONENT                          | STATUS        | NOTES
+-----------------------------------|---------------|----------------------------------
+Chat routes + memory store         | REAL          | In-memory only; no DB
+ChatOrchestrator                   | MOCK          | Keyword/heuristic FMD demo
+DiagnosisOrchestrator (if present) | SEPARATE      | Not wired to chat send
+Voice STT (Faster Whisper)           | MOCK active   | Stub class exists
+Voice TTS (Edge TTS)               | MOCK active   | Sine-wave WAV placeholder
+Translation provider               | MOCK active   | Phrase-replace map
+Translation HTTP route             | REAL          | Wired; mock provider behind it
+Frontend chatService               | REAL          | create + send + get history
+Frontend voiceService              | REAL          | transcribe + speak
+Frontend translationService        | REAL (fixed)  | Was client mock; now calls API
+Frontend conversation seed         | LOCAL MOCK    | mockConversations bootstrap
+
+================================================================================
+4. API USAGE MATRIX
+================================================================================
+
+ENDPOINT                              | BACKEND | FRONTEND | INTEGRATED?
+--------------------------------------|---------|----------|-------------
+POST /api/v1/chat/create              | Yes     | Yes      | Yes (first send)
+POST /api/v1/chat/{id}/message        | Yes     | Yes      | Yes
+GET  /api/v1/chat/{id}                | Yes     | Yes      | Yes (sync on select)
+GET  /api/v1/chat/list                | Yes     | No       | Unused
+DELETE /api/v1/chat/{id}              | Yes     | No       | Store-only delete
+PATCH /api/v1/chat/{id}/rename        | Yes     | No       | Store-only rename
+GET  /api/v1/memory/{id}/history      | Yes     | No       | Unused (chat GET used)
+GET  /api/v1/memory/{id}/context      | Yes     | No       | Unused (backend internal)
+POST /api/v1/voice/transcribe         | Yes     | Yes      | Yes (voice mode)
+POST /api/v1/voice/speak              | Yes     | Yes      | Yes (Listen buttons)
+POST /api/v1/voice/synthesize         | Yes     | No       | Alias; speak used instead
+POST /api/v1/translation/translate    | Yes     | Yes      | Yes (menu + backend chat)
+
+================================================================================
+5. MISSING LINKS (BEFORE → AFTER THIS PASS)
+================================================================================
+
+GAP                                    | BEFORE              | AFTER
+---------------------------------------|---------------------|---------------------------
+Store language never set from UI       | Broken              | ChatHeader dropdown wired
+translationService client mock         | Broken              | Calls backend API
+Chat language ignored in orchestrator  | Ignored (del lang)  | Passed + localize_blocks
+Diagnostic Yes/No without context      | Always triggered    | Checks last assistant type
+Voice → chat continuity                | Manual send only    | sendVoiceMessage auto-send
+Voice language for TTS in chat         | Always "en"         | Uses store.language
+Message translate default language     | Empty               | Prefers store.language
+Server history on conversation switch  | localStorage only   | getChatHistory when synced
+Backend chat → translation             | None                | localization.py in send path
+
+STILL MISSING (not changed — out of scope / blockers):
+  - Server-side STT inside chat (voice is client-side transcribe only)
+  - Pre-send translation of user voice/text before orchestrator
+  - Auto TTS of full assistant response after chat reply
+  - GET /api/v1/chat/list sync for sidebar
+  - DELETE/PATCH chat sync with backend
+  - Frontend calls to /api/v1/memory/*
+  - Real Faster Whisper / Edge TTS / Groq translation
+  - RAG/triage pipeline in chat orchestrator
+  - Database persistence for memory
+
+================================================================================
+6. FILES MODIFIED (THIS INTEGRATION PASS)
+================================================================================
+
+BACKEND
+  backend/features/chat/services/chat_service.py
+    - Pass full message context to orchestrator
+    - Apply localize_blocks after orchestration
+    - Use localized reply text in response
+
+  backend/features/chat/services/orchestrator.py
+    - Accept list[Message] context instead of count only
+    - Diagnostic answer gating via last assistant message_type
+    - Persist language on OrchestrationResult
+
+  backend/features/chat/utils/localization.py  [NEW]
+    - Sync wrapper calling translation_service for non-en chat language
+
+FRONTEND
+  frontend/src/services/translationService.ts
+    - Replaced mockDelay/mockTranslations with apiFetch to /translation/translate
+
+  frontend/src/stores/conversationStore.ts
+    - Added replaceMessages action
+
+  frontend/src/types/conversation.ts
+    - replaceMessages in store contract
+
+  frontend/src/hooks/use-conversations.ts
+    - selectConversation hydrates from GET /api/v1/chat/{id} when synced
+
+  frontend/src/components/chat/layout/ChatHeader.tsx
+    - TranslationDropdown bound to store.language
+
+  frontend/src/components/chat/input/ChatInput.tsx
+    - language prop → VoiceMode
+    - onVoiceSend → auto-send transcribed message with [voice] tag
+
+  frontend/src/components/chat/ChatInterface.tsx
+    - Passes language + sendVoiceMessage to ChatInput
+
+  frontend/src/components/chat/messages/MessageRenderer.tsx
+    - TTS uses store.language via useVoiceOutput
+
+  frontend/src/components/translation/MessageTranslateMenu.tsx
+    - Default target language from store when not English
+
+DOCUMENTATION
+  docs/conversation_integration_report.txt  [THIS FILE]
+
+================================================================================
+7. BLOCKERS
+================================================================================
+
+1. MOCK AI / TRIAGE
+   ChatOrchestrator uses keyword rules. RAG, confidence_scoring HTTP routes,
+   and DiagnosisOrchestrator are not connected to POST .../message.
+
+2. MOCK VOICE / TRANSLATION PROVIDERS
+   Real Faster Whisper and Edge TTS stubs raise NotImplementedError.
+   Translation uses MockTranslationProvider despite real HTTP route.
+
+3. NO DATABASE
+   memory is InMemoryChatStore. Server restart loses chats. Frontend
+   localStorage can diverge from backend unless synced flag is set.
+
+4. ASYNC/SYNC BRIDGE
+   localization.py uses asyncio.run() inside sync chat_service.send_message.
+   Works for tests and sync routes; may need refactor if chat becomes async
+   or under nested event loops.
+
+5. LANGUAGE NOT IN PUBLIC RESPONSE SCHEMA
+   SendMessageResponse does not expose language field (internal dict only).
+   Public API contract unchanged per requirement.
+
+6. STT LANGUAGE DETECTION UNUSED
+   TranscribeResponse.language is returned but not forwarded to chat send
+   or store (could set source_language for translation later).
+
+================================================================================
+8. REMAINING WORK (RECOMMENDED ORDER)
+================================================================================
+
+P0 — Continuity
+  [ ] Sync sidebar with GET /api/v1/chat/list on hydrate
+  [ ] Wire deleteConversation → DELETE /api/v1/chat/{id}
+  [ ] Wire renameConversation → PATCH /api/v1/chat/{id}/rename
+  [ ] Use transcribe detected language as source_language on send
+
+P1 — Pipeline completion
+  [ ] Optional auto-TTS after assistant response (respect mute / language)
+  [ ] Translate user message to English before orchestrator when language != en
+  [ ] Replace ChatOrchestrator mock with DiagnosisOrchestrator + RAG
+
+P2 — Production providers
+  [ ] Enable FasterWhisperSTTProvider when whisper_model configured
+  [ ] Enable EdgeTTSProvider when tts_engine=edge-tts
+  [ ] Groq or IndicTrans for TranslationService
+
+P3 — Persistence
+  [ ] Wire database_url + memory store to SQLAlchemy
+  [ ] Use /memory/context in orchestrator for token-limited LLM prompts
+
+P4 — Docs / cleanup
+  [ ] Update docs/api-contracts.md (session_id → chat_id, speak vs synthesize)
+  [ ] Remove duplicate /api/v1/chat/diagnose if accidental
+  [ ] Remove unused mockData.buildMockChatResponse references
+
+================================================================================
+9. VERIFICATION CHECKLIST
+================================================================================
+
+  [x] Backend tests: tests/features/* (9 passed)
+  [x] Frontend build: npm run build
+  [ ] Manual: set language to Hindi in header → send message → localized cards
+  [ ] Manual: voice mode → speak → auto-send → [voice] user message in history
+  [ ] Manual: switch synced chat → messages reload from server
+  [ ] Manual: MessageTranslateMenu → calls backend (network tab)
+
+================================================================================
+END OF REPORT

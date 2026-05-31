@@ -1,0 +1,146 @@
+PashuMitra AI — Groq Translation Provider Report
+Generated: 2026-05-30
+
+================================================================================
+SUMMARY
+================================================================================
+
+Added GroqTranslationProvider as the primary LLM-backed translation provider
+for livestock veterinary content. Provider selection now prefers Groq when
+GROQ_API_KEY is configured, with LibreTranslate and Mock as fallbacks.
+
+================================================================================
+FILES ADDED / MODIFIED
+================================================================================
+
+NEW:
+  backend/features/translation/services/groq_provider.py
+  backend/tests/features/test_groq_translation.py
+  docs/groq_translation_report.txt
+
+MODIFIED:
+  backend/features/translation/services/translation_service.py
+  backend/config/settings.py
+  backend/.env.example
+  backend/requirements.txt
+
+NOT MODIFIED (per scope):
+  Diagnosis logic, voice services, chat orchestration beyond translation calls
+
+================================================================================
+PROVIDER SELECTION LOGIC
+================================================================================
+
+TRANSLATION_PROVIDER=mock
+  -> MockTranslationProvider
+
+TRANSLATION_PROVIDER=groq
+  -> GroqTranslationProvider (runtime fallback: MockTranslationProvider)
+
+TRANSLATION_PROVIDER=libretranslate
+  -> LibreTranslateProvider (runtime fallback: MockTranslationProvider)
+
+TRANSLATION_PROVIDER=auto
+  -> GroqTranslationProvider       if GROQ_API_KEY is set
+  -> LibreTranslateProvider         else if LIBRETRANSLATE_URL is set
+  -> MockTranslationProvider        else
+
+Restart uvicorn after changing .env — translation_service is a module singleton.
+
+================================================================================
+GROQ PROVIDER DETAILS
+================================================================================
+
+Class: GroqTranslationProvider
+API:   Groq chat.completions (AsyncGroq)
+Model: settings.groq_model (default: llama-3.3-70b-versatile)
+Key:   settings.groq_api_key
+
+Supported language pairs (bidirectional):
+  English (en) <-> Kannada (kn)
+  English (en) <-> Hindi (hi)
+  English (en) <-> Telugu (te)
+  English (en) <-> Tamil (ta)
+  English (en) <-> Urdu (ur)
+
+Malayalam (ml) and other codes fall back to MockTranslationProvider.
+
+Veterinary terminology preservation:
+  System prompt instructs the model to preserve disease names (Mastitis, FMD,
+  PPR), symptoms, animal species, anatomical terms, acronyms, and formatting.
+  Temperature defaults to settings.groq_temperature (0.3) for stable output.
+
+================================================================================
+CONFIGURATION
+================================================================================
+
+Recommended .env for hackathon demo:
+
+  GROQ_API_KEY=gsk_...
+  GROQ_MODEL=llama-3.3-70b-versatile
+  TRANSLATION_PROVIDER=auto
+
+Explicit Groq-only mode:
+
+  TRANSLATION_PROVIDER=groq
+
+Install dependencies:
+
+  pip install -r backend/requirements.txt
+
+New direct dependency: groq>=0.11.0
+
+================================================================================
+INTEGRATION POINTS
+================================================================================
+
+HTTP API:
+  POST /api/v1/translation/translate
+
+Chat localization (unchanged wiring):
+  features/chat/utils/localization.py
+    -> translation_service.translate_text()
+
+Frontend (unchanged):
+  frontend/src/services/translationService.ts
+
+================================================================================
+TEST COVERAGE
+================================================================================
+
+backend/tests/features/test_groq_translation.py
+  - Same-language passthrough (en -> en)
+  - Missing API key -> mock fallback
+  - Unsupported language (ml) -> mock fallback
+  - Successful Groq call (mocked AsyncGroq)
+  - API failure -> mock fallback
+  - Provider selection: mock, groq, libretranslate, auto (groq/libre/mock)
+
+Existing smoke tests (mock provider via conftest) remain in:
+  backend/tests/features/test_translation.py
+
+Run:
+  cd backend && pytest tests/features/test_groq_translation.py -v
+
+================================================================================
+DEMO VERIFICATION
+================================================================================
+
+1. Set GROQ_API_KEY in backend/.env
+2. Set TRANSLATION_PROVIDER=auto (or groq)
+3. Restart uvicorn
+4. POST /api/v1/translation/translate
+     {"text": "Possible disease: Mastitis. Severity: Urgent.", "target_language": "kn"}
+5. Expect Kannada output WITHOUT mock prefix "[ಕನ್ನಡ]"
+6. Chat: set language to kn, send message — assistant blocks should localize via Groq
+
+================================================================================
+KNOWN LIMITATIONS
+================================================================================
+
+- Groq requires network access and valid API key; quota/rate limits apply.
+- Long assistant blocks may hit groq_max_tokens (default 1024); increase if needed.
+- Malayalam (ml) is not supported by Groq provider; uses mock fallback.
+- translation_service singleton: .env changes require server restart.
+
+================================================================================

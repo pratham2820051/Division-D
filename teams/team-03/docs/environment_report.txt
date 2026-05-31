@@ -1,0 +1,225 @@
+PashuMitra AI — Backend Environment Configuration Report
+=========================================================
+Generated: 2026-05-30
+
+Summary
+-------
+All backend configuration is centralized in a single Pydantic BaseSettings class.
+There are no direct os.getenv() calls in the backend. Environment variables are
+loaded from backend/.env via pydantic-settings (env_file=".env").
+
+Canonical source: backend/config/settings.py
+Generated local file: backend/.env
+
+Files scanned
+-------------
+Configuration
+  - backend/config/settings.py          (BaseSettings — sole env var registry)
+  - backend/config/logging.py           (no env vars; hard-coded log level)
+  - backend/.env.example              (template; contains stale/extra entries)
+  - backend/.env                      (generated local development file)
+
+Runtime consumers (import config.settings.settings)
+  - backend/main.py                     → cors_origins
+  - backend/features/chat/services/groq_symptom_extractor.py
+                                        → groq_api_key, groq_model, groq_max_tokens, groq_temperature
+  - backend/features/chat/services/symptom_extraction_service.py
+                                        → use_groq_extraction
+  - backend/features/voice/services/voice_service.py
+                                        → whisper_model, whisper_device, tts_engine, tts_voice
+  - backend/features/voice/services/tts_service.py
+                                        → tts_voice
+  - backend/features/memory/services/memory_service.py
+                                        → max_context_messages
+  - backend/features/translation/services/translation_service.py
+                                        → imports settings (provider switch not implemented yet)
+
+Other backend paths searched (no env access found)
+  - backend/features/**/routes/**
+  - backend/features/**/services/**
+  - backend/shared/**
+  - backend/datasets/**
+
+Discovered environment variables (26)
+-------------------------------------
+All names below are defined in config/settings.py and mapped automatically
+(field_name → UPPER_SNAKE_CASE env var).
+
+Application
+  APP_ENV                 optional   default: development
+                          Used by:   (reserved — not read at runtime yet)
+                          Local dev: development
+
+  APP_HOST                optional   default: 0.0.0.0
+                          Used by:   (reserved — pass to uvicorn manually)
+                          Local dev: 0.0.0.0
+
+  APP_PORT                optional   default: 8000
+                          Used by:   (reserved — pass to uvicorn manually)
+                          Local dev: 8000
+
+  CORS_ORIGINS            optional   default: ["http://localhost:3000"]
+                          Used by:   backend/main.py (CORSMiddleware)
+                          Local dev: ["http://localhost:3000"]  (JSON array in .env)
+
+Groq / symptom extraction
+  GROQ_API_KEY            optional*  default: "" (empty string)
+                          Used by:   backend/features/chat/services/groq_symptom_extractor.py
+                          Required when USE_GROQ_EXTRACTION=true; otherwise ignored.
+                          Local dev: (empty)
+
+  GROQ_MODEL              optional   default: llama-3.3-70b-versatile
+                          Used by:   groq_symptom_extractor.py
+                          Local dev: llama-3.3-70b-versatile
+
+  GROQ_MAX_TOKENS         optional   default: 1024
+                          Used by:   groq_symptom_extractor.py
+                          Local dev: 1024
+
+  GROQ_TEMPERATURE        optional   default: 0.3
+                          Used by:   groq_symptom_extractor.py (capped to 0.2 at call time)
+                          Local dev: 0.3
+
+  USE_GROQ_EXTRACTION     optional   default: false
+                          Used by:   symptom_extraction_service.create_default_extractor()
+                          Local dev: false (rule-based extraction; no API key needed)
+
+Vector store / RAG (reserved)
+  CHROMA_PERSIST_DIR      optional   default: ./vector_store/chroma
+                          Used by:   (planned — datasets/README.md references settings)
+                          Local dev: ./vector_store/chroma
+
+  CHROMA_COLLECTION       optional   default: ruralvet_livestock
+                          Used by:   (planned)
+                          Local dev: ruralvet_livestock
+
+  EMBEDDING_MODEL         optional   default: sentence-transformers/all-MiniLM-L6-v2
+                          Used by:   (planned)
+                          Local dev: sentence-transformers/all-MiniLM-L6-v2
+
+Database
+  DATABASE_URL            optional   default: sqlite:///./database/ruralvet.db
+                          Used by:   (reserved — SQLAlchemy not wired in main flow yet)
+                          Local dev: sqlite:///./database/ruralvet.db
+
+Voice
+  WHISPER_MODEL           optional   default: base
+                          Used by:   voice_service.py (future STT provider gate)
+                          Local dev: base
+
+  WHISPER_DEVICE          optional   default: cpu
+                          Used by:   voice_service.py (future STT provider gate)
+                          Local dev: cpu
+
+  TTS_ENGINE              optional   default: edge-tts
+                          Used by:   voice_service.py (future TTS provider gate)
+                          Local dev: edge-tts
+
+  TTS_VOICE               optional   default: hi-IN-SwaraNeural
+                          Used by:   voice_service.py, tts_service.py
+                          Local dev: hi-IN-SwaraNeural
+
+Translation
+  DEFAULT_LANGUAGE        optional   default: en
+                          Used by:   (reserved — translation uses mock provider)
+                          Local dev: en
+
+  SUPPORTED_LANGUAGES     optional   default: en,hi,mr,kn,ta,te
+                          Used by:   (reserved)
+                          Local dev: en,hi,mr,kn,ta,te
+
+SMS / alerts
+  SMS_PROVIDER            optional   default: console
+                          Used by:   (reserved — SmsAlertService is deterministic, no provider switch)
+                          Local dev: console
+
+  WHATSAPP_ENABLED        optional   default: false
+                          Used by:   (reserved)
+                          Local dev: false
+
+Memory / sessions
+  SESSION_TTL_HOURS       optional   default: 24
+                          Used by:   (reserved)
+                          Local dev: 24
+
+  MAX_CONTEXT_MESSAGES    optional   default: 20
+                          Used by:   memory_service.py
+                          Local dev: 20
+
+Feature flags (reserved)
+  ENABLE_VOICE            optional   default: true
+                          Used by:   (not checked in route registration yet)
+                          Local dev: true
+
+  ENABLE_RAG              optional   default: true
+                          Used by:   (not checked in route registration yet)
+                          Local dev: true
+
+  ENABLE_ALERTS           optional   default: true
+                          Used by:   (not checked in route registration yet)
+                          Local dev: true
+
+* GROQ_API_KEY is conditionally required (only when USE_GROQ_EXTRACTION=true).
+
+Variables in .env.example NOT in settings.py (configuration drift)
+--------------------------------------------------------------------
+These appear in backend/.env.example but are NOT loaded by BaseSettings and
+were excluded from backend/.env:
+
+  TWILIO_ACCOUNT_SID
+  TWILIO_AUTH_TOKEN
+  TWILIO_FROM_NUMBER
+
+Action: remove from .env.example or add matching fields to config/settings.py
+when Twilio integration is implemented.
+
+Missing configuration issues
+------------------------------
+1. .env.example drift
+   - Contains TWILIO_* variables with no Settings fields.
+   - Previously contained a literal GROQ_API_KEY value — secrets must not live
+     in tracked example files; use empty placeholder only.
+
+2. Reserved settings not consumed at runtime
+   APP_HOST, APP_PORT, APP_ENV, DATABASE_URL, CHROMA_*, EMBEDDING_MODEL,
+   DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, SMS_PROVIDER, WHATSAPP_ENABLED,
+   SESSION_TTL_HOURS, ENABLE_VOICE, ENABLE_RAG, ENABLE_ALERTS are defined but
+   not yet read by application code (except where noted above).
+
+3. Translation provider
+   translation_service.py imports settings but always uses MockTranslationProvider;
+   no TRANSLATION_PROVIDER env var exists yet.
+
+4. CORS_ORIGINS list parsing
+   Single-origin value `http://localhost:3000` works in practice with current
+   pydantic-settings defaults. For multiple origins use JSON, e.g.:
+   CORS_ORIGINS=["http://localhost:3000","http://127.0.0.1:3000"]
+
+5. Uvicorn not auto-configured
+   APP_HOST / APP_PORT are not passed by main.py; start server explicitly:
+   cd backend && uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+Verification
+------------
+Settings load test (from backend/):
+
+  py -3 -c "from config.settings import Settings; s=Settings(); print(s.model_dump())"
+
+Result: PASS — all 26 fields load from backend/.env without validation errors.
+
+Recommended local development profile
+---------------------------------------
+  APP_ENV=development
+  CORS_ORIGINS=["http://localhost:3000"]
+  GROQ_API_KEY=                    (empty unless testing Groq extraction)
+  USE_GROQ_EXTRACTION=false        (rule-based extraction, no external API)
+  DATABASE_URL=sqlite:///./database/ruralvet.db
+  SMS_PROVIDER=console
+  WHATSAPP_ENABLED=false
+  ENABLE_VOICE=true
+  ENABLE_RAG=true
+  ENABLE_ALERTS=true
+
+To test Groq symptom extraction locally:
+  GROQ_API_KEY=<your key>
+  USE_GROQ_EXTRACTION=true

@@ -1,0 +1,9 @@
+streamlit
+groq
+python-dotenv
+pypdf
+gtts
+python-docx
+datasets
+pandas
+numpy

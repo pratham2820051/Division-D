@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ============================================================
+   WEARIX DESIGN TOKENS — Tailwind v4 @theme block
+   ============================================================ */
+@theme {
+  /* Colors */
+  --color-wearix-bg:           #FFFFFF;
+  --color-wearix-bg-secondary: #F9F9F9;
+  --color-wearix-text:         #1A1A1A;
+  --color-wearix-text-muted:   #666666;
+  --color-wearix-accent:       #000000;
+  --color-wearix-border:       #E5E5E5;
+  --color-wearix-white:        #FFFFFF;
+
+  /* Typography */
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Animation keyframes */
+  --animate-fade-in-up:    fadeInUp 0.5s ease forwards;
+  --animate-slide-in-right: slideInRight 0.4s ease forwards;
+  --animate-shimmer:        shimmer 1.5s infinite linear;
+
+  --animate-marquee:        marquee 25s linear infinite;
+
+  /* Keyframe definitions */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (runtime access from JS / non-Tailwind)
+   ============================================================ */
+:root {
+  --color-bg:             #FFFFFF;
+  --color-bg-secondary:   #F9F9F9;
+  --color-text-primary:   #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-accent:         #000000;
+  --color-border:         #E5E5E5;
+}
+
+/* ============================================================
+   BASE RESET / BODY
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   CONTAINER UTILITY
+   ============================================================ */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;  /* px-6 */
+  padding-right: 1.5rem;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9F9F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CCCCCC;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CCCCCC #F9F9F9;
+}
+
+/* ============================================================
+   SKELETON LOADING STATE
+   ============================================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #E5E5E5 25%,
+    #F0F0F0 50%,
+    #E5E5E5 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   ANIMATION UTILITY CLASSES
+   ============================================================ */
+
+/* Framer Motion helper — invisible initial state */
+.motion-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Fade in up (CSS-only fallback) */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Slide in from right (CSS-only fallback) */
+.animate-slide-in-right {
+  animation: slideInRight 0.4s ease forwards;
+}
+
+/* Stagger delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.text-balance {
+  text-wrap: balance;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* ============================================================
+   FOCUS STYLES (accessibility)
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+/* ============================================================
+   IMAGE UTILITIES
+   ============================================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   BUTTON RESET
+   ============================================================ */
+button {
+  cursor: pointer;
+}
+
+/* ============================================================
+   LINK RESET
+   ============================================================ */
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,19 @@
+disease_id,question,symptom_checked
+anthrax,Is there any bloody discharge from the nose or mouth?,bloody_discharge
+anthrax,Did the animal die suddenly without much warning?,sudden_death
+anthrax,Do you see swelling on the neck brisket or flanks?,neck_swelling
+foot-and-mouth-disease,Are there blisters in the mouth or on the tongue?,mouth_blisters
+foot-and-mouth-disease,Are there blisters on the feet or between the toes?,hoof_blisters
+foot-and-mouth-disease,Is the animal drooling heavily or unable to eat?,drooling
+lumpy-skin-disease,Do you see hard skin nodules or lumps on the body?,skin_nodules
+lumpy-skin-disease,Are the lymph nodes under the neck or jaw swollen?,swollen_lymph_nodes
+lumpy-skin-disease,Does the animal have a high fever?,high_fever
+mastitis,Is the udder swollen hot or painful to touch?,swollen_udder
+mastitis,Has milk production dropped suddenly?,reduced_milk
+mastitis,Is the milk watery clotted or bloody?,bloody_milk
+brucellosis,Has there been a recent abortion or stillbirth?,abortion
+brucellosis,Was the placenta retained after calving?,retained_placenta
+brucellosis,Does the animal have on-and-off fever?,intermittent_fever
+_generic,Is the animal eating normally or off feed?,reduced_appetite
+_generic,Is there nasal discharge or a runny nose?,nasal_discharge
+_generic,Is the animal coughing or having trouble breathing?,difficulty_breathing

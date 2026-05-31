@@ -1,0 +1,6 @@
+disease_id,template
+anthrax,"{severity_header}\n\nAnimal: {animal_type}\n\nSuspected Disease:\n{disease_name}\n\nConfidence:\n{confidence}\n\nSymptoms:\n{symptoms}\n\nSeverity:\n{severity}\n\nDo not open or handle carcasses. Notify veterinary services immediately."
+foot-and-mouth-disease,"{severity_header}\n\nAnimal: {animal_type}\n\nSuspected Disease:\n{disease_name}\n\nConfidence:\n{confidence}\n\nSymptoms:\n{symptoms}\n\nSeverity:\n{severity}\n\nIsolate the animal and stop herd movement. Notify the livestock department without delay."
+lumpy-skin-disease,"{severity_header}\n\nAnimal: {animal_type}\n\nSuspected Disease:\n{disease_name}\n\nConfidence:\n{confidence}\n\nSymptoms:\n{symptoms}\n\nSeverity:\n{severity}\n\nIsolate the animal and apply insect control. Contact a veterinarian for supportive care."
+mastitis,"{severity_header}\n\nAnimal: {animal_type}\n\nSuspected Disease:\n{disease_name}\n\nConfidence:\n{confidence}\n\nSymptoms:\n{symptoms}\n\nSeverity:\n{severity}\n\nDiscard abnormal milk safely and call a veterinarian for treatment."
+brucellosis,"{severity_header}\n\nAnimal: {animal_type}\n\nSuspected Disease:\n{disease_name}\n\nConfidence:\n{confidence}\n\nSymptoms:\n{symptoms}\n\nSeverity:\n{severity}\n\nHandle aborted materials with gloves. Contact a veterinarian for herd testing."

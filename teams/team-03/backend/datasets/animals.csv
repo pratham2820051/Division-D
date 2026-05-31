@@ -1,0 +1,9 @@
+animal_id,animal_name,aliases,supported
+cattle,cattle,"cow;cattle;cows;bull;calf;heifer;ox;hasu;hasuvu;hasuvige;hasuvina;gai;gaay;meri gai;ಹಸು;ಹಸುವು;ಹಸುವಿಗೆ;गाय",true
+buffalo,buffalo,"buffalo;buffaloes;buffalos;emme;emmegige;emmena;bhains;bhainsa;bhains ko;ಎಮ್ಮೆ;ಎಮ್ಮೆಗೆ;भैंस",true
+goat,goat,"goat;goats;kid;meke;mekege;mekey;mekke;nanna meke;bakri;bakri ko;meri bakri;ಮೇಕೆ;ಮೇಕೆಗೆ;बकरी",true
+sheep,sheep,"sheep;lamb;lambs;ram;ewe;ewes;kuri;kurige;kurina;bhed;bhed ko;ಕುರಿ;ಕುರಿಗೆ;भेड़",true
+pig,pig,"pig;pigs;swine;hog",false
+poultry,poultry,"chicken;hen;rooster;poultry;bird;duck",false
+horse,horse,"horse;horses;mare;stallion;colt",false
+dog,dog,"dog;dogs;puppy;puppies",false

@@ -1,0 +1,15 @@
+# CyberSentinel AI - Backend Dependencies
+# Install with: py -m pip install -r features_extractor/requirements.txt
+
+# Core API packages
+google-genai>=2.7.0          # New Gemini SDK (replaces google-generativeai)
+pydantic>=2.9.0
+python-dotenv>=1.0.0
+
+# FastAPI server
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+python-multipart>=0.0.7
+
+# HTTP client for LlamaParse REST API
+httpx>=0.24.0

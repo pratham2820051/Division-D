@@ -1,0 +1,26 @@
+disease_id,step_order,instruction
+anthrax,1,Do not open bleed or butcher any dead animal when anthrax is suspected.
+anthrax,2,Isolate live sick animals and keep people and other animals away from the area.
+anthrax,3,Mark and protect the site; avoid disturbing soil where animals graze or died.
+anthrax,4,Notify government veterinary services immediately for carcass disposal and diagnosis.
+anthrax,5,Vaccinate unaffected animals only under official veterinary direction after confirmation.
+foot-and-mouth-disease,1,Isolate the affected animal immediately from the rest of the herd.
+foot-and-mouth-disease,2,Stop all movement of animals vehicles and people off the farm until a veterinarian confirms the situation.
+foot-and-mouth-disease,3,Provide soft palatable feed and clean water; avoid forcing the animal to walk on painful hooves.
+foot-and-mouth-disease,4,Disinfect footwear tools and troughs that contacted saliva or blister fluid.
+foot-and-mouth-disease,5,Notify the nearest government veterinary officer or livestock department without delay.
+lumpy-skin-disease,1,Isolate the animal to reduce insect exposure and limit spread within the herd.
+lumpy-skin-disease,2,Apply fly control measures on the farm (clean manure insecticide as advised locally).
+lumpy-skin-disease,3,Keep the animal in shade with fresh water and good-quality forage.
+lumpy-skin-disease,4,Do not burst or cut skin nodules; keep lesions clean and dry.
+lumpy-skin-disease,5,Contact a veterinarian for supportive care and official reporting if required in your district.
+mastitis,1,Strip out affected quarters gently and discard abnormal milk safely; do not feed it to calves.
+mastitis,2,Apply a clean cold compress to a hot swollen quarter for short periods if the animal allows.
+mastitis,3,Ensure clean dry bedding and milk only with washed hands and clean equipment.
+mastitis,4,Withhold milk from the food chain until a veterinarian advises it is safe.
+mastitis,5,Call a veterinarian promptly for antibiotics and pain management; severe cases can become systemic quickly.
+brucellosis,1,Handle aborted materials and placenta only with gloves; bury or dispose as directed by a veterinarian.
+brucellosis,2,Isolate aborted animals and separate their milk; do not consume raw milk from suspect animals.
+brucellosis,3,Avoid assisting calving without protection when reproductive disease is suspected in the herd.
+brucellosis,4,Record abortion dates and animal IDs for veterinary testing and herd screening.
+brucellosis,5,Contact a veterinarian for blood testing and official control measures; do not treat alone with antibiotics without diagnosis.

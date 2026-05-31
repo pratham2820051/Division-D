@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environment
+.env
+.env.local
+backend/.env
+frontend/.env.local
+
+# Build
+.next/
+out/
+dist/
+build/
+*.egg-info/
+
+# Database & vector store
+backend/database/*.db
+backend/vector_store/chroma/*
+!backend/vector_store/chroma/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Logs & temp
+*.log
+tmp/
+temp/
+
+# Audio uploads (hackathon)
+uploads/
+*.wav
+*.mp3

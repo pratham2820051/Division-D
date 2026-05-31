@@ -1,0 +1,70 @@
+symptom_id,canonical_name,aliases,triage_tier,symptom_family
+
+fever,fever,"fever;temperature;hot to touch;jwara;jvara;bukhar;bukhhar;taap;tapa;ज्वर;बुखार;ಜ್ವರ",urgent,fever
+
+high_fever,high fever,"high fever;very high fever;running a fever",urgent,fever
+
+drooling,excessive salivation and drooling,"drooling;drool;saliva;excessive salivation;excessive salivation and drooling;salivating;ಬಾಯಿ ನೀರು;मुंह से पानी",urgent
+
+reduced_appetite,reduced appetite,"not eating;won't eat;wont eat;refusing feed;off feed;loss of appetite;reduced appetite;not eating well;poor appetite;ತಿನ್ನುತ್ತಿಲ್ಲ;खाना नहीं खा रहा;खाना नहीं खाता",
+
+mouth_blisters,blisters on tongue and gums,"blisters on tongue and gums;blisters in its mouth;blisters in the mouth;blisters in mouth;blisters on tongue;mouth ulcers;ulcers in mouth;sores in mouth",urgent
+
+hoof_blisters,blisters on hooves and between digits,"blisters on hooves;blisters on feet;hoof blisters;blisters between digits;hoof lesions;ಕಾಲು ನೋವು",urgent
+
+lameness,lameness and reluctance to walk,"lameness;lame;reluctance to walk;not walking;walking problem;leg pain;ಕಾಲು ನೋವು",
+
+nasal_discharge,nasal discharge,"nasal discharge;runny nose;nose discharge",
+
+reduced_milk,reduced milk yield,"low milk;reduced milk;drop in milk;less milk;drop in milk yield;milk reduced",
+
+weakness,weakness and lethargy,"weak;very weak;animal weak;looks weak;lethargic;dull;weakness;depression and isolation from herd",
+
+sudden_death,sudden death without warning,"sudden death;died suddenly;found dead;sudden death without warning",critical
+
+bloody_discharge,bloody discharge from natural openings,"bloody discharge;blood from nose;bloody stool;bloody urine;bloody discharge from natural openings",critical
+
+neck_swelling,swelling of neck brisket or flanks,"swollen neck;neck swelling;swelling on neck;swollen brisket;swelling of neck brisket or flanks;swelling;lump;ಗಡ್ಡೆ;सूजन",critical
+
+difficulty_breathing,difficulty breathing,"difficulty breathing;labored breathing;breathing hard",critical
+
+trembling,trembling and difficulty standing,"trembling;trembling and difficulty standing",
+
+bloated_carcass,bloated carcass appearance if found dead,"bloated carcass;bloated carcass appearance if found dead",
+
+skin_nodules,firm skin nodules on neck and body,"skin nodules;lumps on skin;firm nodules;nodules on neck;lumpy skin;firm skin nodules on neck and body;lump;ಗಡ್ಡೆ;सूजन",urgent
+
+swollen_lymph_nodes,swollen lymph nodes,"swollen lymph nodes;lymph node swelling;ಗಡ್ಡೆ;सूजन",urgent
+
+watery_eyes_nasal,watery eyes and nasal discharge,"watery eyes;watery eyes and nasal discharge",
+
+weight_loss,weight loss,"weight loss;poor body condition;weight loss and poor body condition",
+
+swollen_udder,swollen painful udder quarter,"swollen udder;painful udder;swollen painful udder;udder swelling;swollen painful udder quarter;ಗಡ್ಡೆ;सूजन",urgent
+
+hot_udder,hot udder to touch,"hot udder;hot udder to touch",
+
+abnormal_milk,abnormal milk with clots or flakes,"abnormal milk;clots in milk;flakes in milk;abnormal milk with clots or flakes",
+
+bloody_milk,watery or bloody milk,"watery milk;bloody milk;watery or bloody milk",
+
+udder_hardness,udder hardness after milking,"udder hardness;udder hardness after milking",
+
+abortion,abortion in late pregnancy,"abortion;abortion in late pregnancy;recent abortion",urgent
+
+retained_placenta,retained placenta after calving,"retained placenta;retained placenta after calving",
+
+infertility,infertility and repeat breeding,"infertility;repeat breeding;infertility and repeat breeding",
+
+swollen_joints,swollen joints and lameness,"swollen joints;swollen joints and lameness;सूजन",
+
+intermittent_fever,intermittent fever,"intermittent fever;on and off fever",,fever
+
+weak_calves,weak calves at birth,"weak calves;weak calves at birth",
+
+unable_to_stand,unable to stand,"unable to stand;cannot stand;can't stand;not able to stand;not standing",critical
+
+seizures,seizures,"seizures;convulsions",critical
+
+collapse,collapse,"collapse;collapsed",critical
+

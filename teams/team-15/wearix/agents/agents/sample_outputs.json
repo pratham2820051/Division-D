@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-05-30T15:47:55.621763+00:00",
+  "model": "llama-3.3-70b-versatile",
+  "records": [
+    {
+      "tier": "Tier-1",
+      "input": {
+        "intent": "cancel_order",
+        "text": "I need to cancel purchase ORD-10482. It has not shipped yet."
+      },
+      "output": {
+        "tier": "Tier-1",
+        "intent": "cancel_order",
+        "text": "I need to cancel purchase ORD-10482. It has not shipped yet.",
+        "status": "RESOLVED",
+        "response": "Dear valued customer,\n\nWe've received your request to cancel order ORD-10482. Since the order has not shipped yet, we can proceed with the cancellation. To confirm, we will follow these steps: \n1. Our team will review the order status to ensure it hasn't been processed for shipping.\n2. If eligible, we will cancel the order and send you a confirmation email.\n3. You can also track the status of your cancellation by logging into your account on our portal and checking the order details.\n\nPlease allow 2-3 business days for the refund to be processed, and 5-7 business days for the amount to reflect in your original payment method. If you have any further questions or concerns, feel free to reach out to us.\n\nYour order ORD-10482 will be cancelled, and we will keep you updated on the refund status. \nShopEase Support"
+      }
+    },
+    {
+      "tier": "Tier-1",
+      "input": {
+        "intent": "delivery_period",
+        "text": "When will order ORD-99231 arrive? I ordered five days ago."
+      },
+      "output": {
+        "tier": "Tier-1",
+        "intent": "delivery_period",
+        "text": "When will order ORD-99231 arrive? I ordered five days ago.",
+        "status": "RESOLVED",
+        "response": "Thank you for reaching out to us about the status of your order, ORD-99231. We appreciate your patience and are happy to help. Our standard delivery window is typically between 7-10 business days, so your order should arrive within the next few days.\n\nYou can track the status of your order by checking your email for the tracking information that was sent to you once your order shipped. If you're unable to locate this information, please let us know and we'll be happy to provide an update.\n\nIf the delivery window has passed and you still haven't received your order, we'd be happy to investigate further to determine the cause of the delay. Since it's only been five days since you placed your order, we're still within the expected delivery window. However, we'll keep an eye on it and follow up if necessary.\n\nWe appreciate your continued patience and look forward to ensuring that your order arrives safely. If you have any further questions or concerns, please don't hesitate to reach out. We're here to help. \nShopEase Support"
+      }
+    },
+    {
+      "tier": "Tier-1",
+      "input": {
+        "intent": "track_refund",
+        "text": "I returned a jacket last week. Can you tell me when my refund will post?"
+      },
+      "output": {
+        "tier": "Tier-1",
+        "intent": "track_refund",
+        "text": "I returned a jacket last week. Can you tell me when my refund will post?",
+        "status": "RESOLVED",
+        "response": "Thank you for reaching out to us about the status of your refund. We appreciate you returning the jacket and are happy to help you with your query. If our returns team has received your return, they would have processed it and initiated the refund process.\n\nPlease note that our typical refund timeline is between 5 to 10 business days from the date we receive the returned item. This timeframe allows us to process the return and complete the refund. You will be notified via email as soon as the refund has been issued. This email will confirm that the refund has been processed and will provide you with details about the amount refunded and the payment method used.\n\nIf you haven't received an email from us confirming receipt of your return, please allow a few more days for our team to process it. We will send you an email as soon as the refund is on its way. If you have any further questions or concerns, don't hesitate to reach out to us.\n\nYour refund will be processed as soon as possible, and you will be notified by email once it's complete. We appreciate your patience and thank you for shopping with us.\nShopEase Support"
+      }
+    },
+    {
+      "tier": "Tier-2",
+      "input": {
+        "intent": "complaint",
+        "text": "This is the third time my order arrived damaged. I want compensation, not another apology."
+      },
+      "output": {
+        "tier": "Tier-2",
+        "intent": "complaint",
+        "text": "This is the third time my order arrived damaged. I want compensation, not another apology.",
+        "status": "ESCALATED",
+        "brief": {
+          "sentiment": "negative",
+          "priority": "high",
+          "department": "Customer Relations",
+          "sla": "8 business hours",
+          "issue_summary": "Customer received damaged order for the third time, requesting compensation",
+          "recommended_actions": "Investigate the repeated damage issue, consider offering compensation or replacement, and provide a formal apology for the inconvenience caused"
+        }
+      }
+    },
+    {
+      "tier": "Tier-2",
+      "input": {
+        "intent": "payment_issue",
+        "text": "I was charged twice for order ORD-77801 and nobody has fixed it after two weeks."
+      },
+      "output": {
+        "tier": "Tier-2",
+        "intent": "payment_issue",
+        "text": "I was charged twice for order ORD-77801 and nobody has fixed it after two weeks.",
+        "status": "ESCALATED",
+        "brief": {
+          "sentiment": "frustrated",
+          "priority": "high",
+          "department": "Finance & Billing",
+          "sla": "8 business hours",
+          "issue_summary": "Customer was double-charged for order ORD-77801 and has not received a refund after two weeks",
+          "recommended_actions": "Investigate the duplicate charge, process a refund for the incorrect charge, and notify the customer of the resolution"
+        }
+      }
+    },
+    {
+      "tier": "Tier-2",
+      "input": {
+        "intent": "registration_problems",
+        "text": "I cannot log in after the password reset. The app crashes every time on Android."
+      },
+      "output": {
+        "tier": "Tier-2",
+        "intent": "registration_problems",
+        "text": "I cannot log in after the password reset. The app crashes every time on Android.",
+        "status": "ESCALATED",
+        "brief": {
+          "sentiment": "frustrated",
+          "priority": "medium",
+          "department": "Engineering",
+          "sla": "24 business hours",
+          "issue_summary": "Customer is experiencing app crashes on Android after password reset, preventing login.",
+          "recommended_actions": "Investigate the crash issue, verify password reset functionality, and provide a workaround or fix to enable customer login."
+        }
+      }
+    },
+    {
+      "tier": "Tier-2",
+      "input": {
+        "intent": "contact_human_agent",
+        "text": "Stop sending bots. I need a supervisor now \u2014 I will dispute the charge with my bank."
+      },
+      "output": {
+        "tier": "Tier-2",
+        "intent": "contact_human_agent",
+        "text": "Stop sending bots. I need a supervisor now \u2014 I will dispute the charge with my bank.",
+        "status": "ESCALATED",
+        "brief": {
+          "sentiment": "angry",
+          "priority": "high",
+          "department": "Customer Relations",
+          "sla": "8 business hours",
+          "issue_summary": "Customer demands to speak with a supervisor and threatens to dispute a charge with their bank due to dissatisfaction with automated support",
+          "recommended_actions": "Acknowledge customer frustration, escalate to a supervisor, and attempt to resolve the issue to prevent a chargeback"
+        }
+      }
+    }
+  ]
+}

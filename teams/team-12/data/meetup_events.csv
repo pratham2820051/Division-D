@@ -1,0 +1,151 @@
+event_id,event_name,group_name,venue_name,city,attendance,category,capacity,cost_estimate_inr
+1000,CleanTech & Renewable Energy Startups - San Francisco Edition,San Francisco Alliance SF,San Francisco Eco Center,San Francisco,114,Sustainability,125,474240
+1001,CleanTech & Renewable Energy Startups,Singapore Alliance SF,Singapore Eco Center,Singapore,107,Sustainability,117,342400
+1002,B2B SaaS Growth & SEO Strategies,Sydney Marketers Guild,Sydney Times Square,Sydney,94,Marketing & Growth,122,278240
+1003,Healthcare Startups Pitch Night - Berlin Edition,Berlin HealthTech,Berlin Seminar Hall,Berlin,175,Healthcare,210,532000
+1004,Telehealth Regulatory Standards,London Health Innovators,London Conference Hall,London,60,Healthcare,72,264000
+1005,B2B SaaS Growth & SEO Strategies,Bangalore Marketers Guild,Bangalore Times Square,Bangalore,102,Marketing & Growth,122,236640
+1006,Open Banking & API Security - Sydney Edition,Sydney Fintech Circle,Sydney Wharf Tech Center,Sydney,112,Finance & Fintech,123,448000
+1007,EdTech Platforms & the Future of Classrooms,Bangalore Innovators NY,Bangalore University Hall,Bangalore,89,Education,106,249200
+1008,Open Banking & API Security,London Fintech Circle,London Wharf Tech Center,London,125,Finance & Fintech,137,490000
+1009,AI Applications in Medical Imaging - Singapore Edition,Singapore Collective,Singapore Med Center,Singapore,99,Healthcare,128,538560
+1010,Digital Health & Patient Care Innovation,Mumbai Tech Network,Mumbai Innovation Lab,Mumbai,58,Healthcare,63,171680
+1011,Influencer Marketing Campaigns at Scale,Mumbai Digital Marketers,Mumbai Hills Event Hall,Mumbai,129,Marketing & Growth,167,526320
+1012,Machine Learning for Fraud Detection - Chicago Edition,Chicago Quantitative Traders,Chicago District Suite,Chicago,103,Finance & Fintech,133,354320
+1013,AI-Driven Content Personalization,Tokyo Marketing London,Tokyo Creative Studio,Tokyo,76,Marketing & Growth,83,218880
+1014,Next-Gen Biotech Research,Chicago Biotech Network,Chicago College Auditoria,Chicago,92,Healthcare,119,471040
+1015,Zero-Budget Product Launch Tactics - Bangalore Edition,Bangalore Startups & Marketing,Bangalore Club,Bangalore,205,Marketing & Growth,266,770800
+1016,EdTech Platforms & the Future of Classrooms,Mumbai Innovators NY,Mumbai University Hall,Mumbai,88,Education,96,359040
+1017,Circular Economy & Waste Reduction,Bangalore Sustainability Forum,Bangalore EcoHub,Bangalore,72,Sustainability,93,161280
+1018,Circular Economy & Waste Reduction - Singapore Edition,Singapore Sustainability Forum,Singapore EcoHub,Singapore,76,Sustainability,98,224960
+1019,Conversion Rate Optimization (CRO),Mumbai Growth Hackers,Mumbai Innovation Hub,Mumbai,59,Marketing & Growth,76,165200
+1020,Cloud Native & Serverless Meetup,Berlin Cloud Engineers,Berlin Mart Suite,Berlin,122,AI & Technology,146,556320
+1021,Healthcare Startups Pitch Night - Bangalore Edition,Bangalore HealthTech,Bangalore Seminar Hall,Bangalore,193,Healthcare,212,772000
+1022,Online Course Design & Gamification,London EdTech Developers,London Studio,London,72,Education,86,201600
+1023,B2B SaaS Growth & SEO Strategies,Berlin Marketers Guild,Berlin Times Square,Berlin,80,Marketing & Growth,88,243200
+1024,AI Applications in Medical Imaging - Sydney Edition,Sydney Collective,Sydney Med Center,Sydney,92,Healthcare,119,404800
+1025,Circular Economy & Waste Reduction,Berlin Sustainability Forum,Berlin EcoHub,Berlin,75,Sustainability,97,192000
+1026,Next-Gen Biotech Research,Berlin Biotech Network,Berlin College Auditoria,Berlin,78,Healthcare,93,299520
+1027,Design Systems for Enterprise Apps - Berlin Edition,Berlin Product Designers,Berlin Studio SF,Berlin,75,Product & Design,90,252000
+1028,Generative AI in Production,London Tech & ML Forum,London Tech Hub,London,117,AI & Technology,140,327600
+1029,Design Systems for Enterprise Apps,London Product Designers,London Studio SF,London,83,Product & Design,107,192560
+1030,CleanTech & Renewable Energy Startups - Singapore Edition,Singapore Alliance SF,Singapore Eco Center,Singapore,117,Sustainability,140,430560
+1031,EdTech Platforms & the Future of Classrooms,Tokyo Innovators NY,Tokyo University Hall,Tokyo,49,Education,58,145040
+1032,Smart Cities & Sustainable Transport,Singapore Eco-Architects,Singapore Seminar Hall,Singapore,94,Sustainability,103,406080
+1033,AI-Driven Content Personalization - New York Edition,New York Marketing London,New York Creative Studio,New York,49,Marketing & Growth,63,145040
+1034,B2B SaaS Growth & SEO Strategies,Chicago Marketers Guild,Chicago Times Square,Chicago,66,Marketing & Growth,85,227040
+1035,Customer Journey Mapping Workshop,San Francisco Creative Minds,San Francisco Design Space,San Francisco,44,Product & Design,57,73920
+1036,Climate Tech Financing & ESG Metrics - Sydney Edition,Sydney Green Finance,Sydney City Labs,Sydney,103,Sustainability,133,313120
+1037,Machine Learning for Fraud Detection,Tokyo Quantitative Traders,Tokyo District Suite,Tokyo,94,Finance & Fintech,112,376000
+1038,Building Agentic Workflows,New York Code Club,New York Galaxy,New York,261,AI & Technology,287,1044000
+1039,Telehealth Regulatory Standards - Singapore Edition,Singapore Health Innovators,Singapore Conference Hall,Singapore,62,Healthcare,68,272800
+1040,Machine Learning for Fraud Detection,Bangalore Quantitative Traders,Bangalore District Suite,Bangalore,84,Finance & Fintech,100,295680
+1041,EdTech Platforms & the Future of Classrooms,Singapore Innovators NY,Singapore University Hall,Singapore,107,Education,139,291040
+1042,Digital Health & Patient Care Innovation - Bangalore Edition,Bangalore Tech Network,Bangalore Innovation Lab,Bangalore,54,Healthcare,59,146880
+1043,Healthcare Startups Pitch Night,Bangalore HealthTech,Bangalore Seminar Hall,Bangalore,153,Healthcare,168,403920
+1044,Design Systems for Enterprise Apps,Bangalore Product Designers,Bangalore Studio SF,Bangalore,101,Product & Design,131,282800
+1045,CleanTech & Renewable Energy Startups - Tokyo Edition,Tokyo Alliance SF,Tokyo Eco Center,Tokyo,111,Sustainability,122,479520
+1046,Influencer Marketing Campaigns at Scale,Singapore Digital Marketers,Singapore Hills Event Hall,Singapore,117,Marketing & Growth,140,580320
+1047,Online Course Design & Gamification,New York EdTech Developers,New York Studio,New York,70,Education,77,190400
+1048,Zero-Budget Product Launch Tactics - Tokyo Edition,Tokyo Startups & Marketing,Tokyo Club,Tokyo,151,Marketing & Growth,166,591920
+1049,Machine Learning at Scale,Chicago Tech Circle,Chicago Co-Working Hub,Chicago,80,AI & Technology,104,268800
+1050,Decentralized Finance & Blockchain Tech,Chicago Pioneers NYC,Chicago Street Conference Room,Chicago,107,Finance & Fintech,128,385200
+1051,Online Course Design & Gamification - Berlin Edition,Berlin EdTech Developers,Berlin Studio,Berlin,55,Education,60,136400
+1052,Smart Cities & Sustainable Transport,London Eco-Architects,London Seminar Hall,London,66,Sustainability,79,253440
+1053,Zero-Budget Product Launch Tactics,Tokyo Startups & Marketing,Tokyo Club,Tokyo,158,Marketing & Growth,189,442400
+1054,Decentralized Finance & Blockchain Tech - New York Edition,New York Pioneers NYC,New York Street Conference Room,New York,117,Finance & Fintech,140,468000
+1055,Conversion Rate Optimization (CRO),San Francisco Growth Hackers,San Francisco Innovation Hub,San Francisco,74,Marketing & Growth,81,189440
+1056,Cloud Native & Serverless Meetup,Singapore Cloud Engineers,Singapore Mart Suite,Singapore,116,AI & Technology,150,482560
+1057,Next-Gen Biotech Research - Mumbai Edition,Mumbai Biotech Network,Mumbai College Auditoria,Mumbai,80,Healthcare,88,364800
+1058,Open Banking & API Security,Singapore Fintech Circle,Singapore Wharf Tech Center,Singapore,112,Finance & Fintech,145,376320
+1059,Next-Gen Biotech Research,London Biotech Network,London College Auditoria,London,95,Healthcare,123,471200
+1060,AI-Driven Content Personalization - Sydney Edition,Sydney Marketing London,Sydney Creative Studio,Sydney,62,Marketing & Growth,74,138880
+1061,Customer Journey Mapping Workshop,Sydney Creative Minds,Sydney Design Space,Sydney,61,Product & Design,73,136640
+1062,Influencer Marketing Campaigns at Scale,Berlin Digital Marketers,Berlin Hills Event Hall,Berlin,128,Marketing & Growth,166,563200
+1063,Machine Learning for Fraud Detection - San Francisco Edition,San Francisco Quantitative Traders,San Francisco District Suite,San Francisco,94,Finance & Fintech,103,255680
+1064,Building Agentic Workflows,London Code Club,London Galaxy,London,277,AI & Technology,332,1329600
+1065,Circular Economy & Waste Reduction,Sydney Sustainability Forum,Sydney EcoHub,Sydney,80,Sustainability,96,172800
+1066,CleanTech & Renewable Energy Startups - New York Edition,New York Alliance SF,New York Eco Center,New York,115,Sustainability,149,432400
+1067,Generative AI in Production,Singapore Tech & ML Forum,Singapore Tech Hub,Singapore,112,AI & Technology,145,456960
+1068,Conversion Rate Optimization (CRO),Mumbai Growth Hackers,Mumbai Innovation Hub,Mumbai,72,Marketing & Growth,93,161280
+1069,Influencer Marketing Campaigns at Scale - Berlin Edition,Berlin Digital Marketers,Berlin Hills Event Hall,Berlin,137,Marketing & Growth,164,635680
+1070,STEM Education for Underrepresented Youth,Bangalore STEM Network,Bangalore University Hall,Bangalore,185,Education,203,503200
+1071,Telehealth Regulatory Standards,Bangalore Health Innovators,Bangalore Conference Hall,Bangalore,66,Healthcare,72,205920
+1072,Product Management in the AI Era - Chicago Edition,Chicago PM Collective,Chicago Central Workspace,Chicago,97,Product & Design,126,318160
+1073,Cloud Native & Serverless Meetup,London Cloud Engineers,London Mart Suite,London,81,AI & Technology,105,369360
+1074,Building Agentic Workflows,Sydney Code Club,Sydney Galaxy,Sydney,208,AI & Technology,249,1164800
+1075,AI-Assisted Learning & Grading Tools - Tokyo Edition,Tokyo Educators Guild,Tokyo Learning Center,Tokyo,67,Education,80,128640
+1076,Machine Learning for Fraud Detection,Tokyo Quantitative Traders,Tokyo District Suite,Tokyo,116,Finance & Fintech,150,296960
+1077,Circular Economy & Waste Reduction,Tokyo Sustainability Forum,Tokyo EcoHub,Tokyo,82,Sustainability,98,190240
+1078,Telehealth Regulatory Standards - Berlin Edition,Berlin Health Innovators,Berlin Conference Hall,Berlin,42,Healthcare,50,174720
+1079,Online Course Design & Gamification,Tokyo EdTech Developers,Tokyo Studio,Tokyo,96,Education,124,284160
+1080,Decentralized Finance & Blockchain Tech,London Pioneers NYC,London Street Conference Room,London,141,Finance & Fintech,155,710640
+1081,Healthcare Startups Pitch Night - New York Edition,New York HealthTech,New York Seminar Hall,New York,139,Healthcare,180,378080
+1082,Telehealth Regulatory Standards,Berlin Health Innovators,Berlin Conference Hall,Berlin,83,Healthcare,107,378480
+1083,Circular Economy & Waste Reduction,San Francisco Sustainability Forum,San Francisco EcoHub,San Francisco,56,Sustainability,72,165760
+1084,Product Management in the AI Era - Tokyo Edition,Tokyo PM Collective,Tokyo Central Workspace,Tokyo,133,Product & Design,159,521360
+1085,Zero-Budget Product Launch Tactics,San Francisco Startups & Marketing,San Francisco Club,San Francisco,191,Marketing & Growth,229,687600
+1086,Machine Learning at Scale,Singapore Tech Circle,Singapore Co-Working Hub,Singapore,58,AI & Technology,69,134560
+1087,Machine Learning for Fraud Detection - Berlin Edition,Berlin Quantitative Traders,Berlin District Suite,Berlin,81,Finance & Fintech,105,239760
+1088,STEM Education for Underrepresented Youth,Singapore STEM Network,Singapore University Hall,Singapore,164,Education,213,367360
+1089,EdTech Platforms & the Future of Classrooms,London Innovators NY,London University Hall,London,83,Education,99,285520
+1090,Climate Tech Financing & ESG Metrics - Tokyo Edition,Tokyo Green Finance,Tokyo City Labs,Tokyo,76,Sustainability,91,231040
+1091,Zero-Budget Product Launch Tactics,Bangalore Startups & Marketing,Bangalore Club,Bangalore,165,Marketing & Growth,214,541200
+1092,Smart Cities & Sustainable Transport,Berlin Eco-Architects,Berlin Seminar Hall,Berlin,123,Sustainability,135,492000
+1093,Healthcare Startups Pitch Night - Bangalore Edition,Bangalore HealthTech,Bangalore Seminar Hall,Bangalore,144,Healthcare,172,460800
+1094,Climate Tech Financing & ESG Metrics,Singapore Green Finance,Singapore City Labs,Singapore,80,Sustainability,96,236800
+1095,Deep Dive into Vector Databases,London AI Developers,London Shard Suite,London,70,AI & Technology,91,145600
+1096,Telehealth Regulatory Standards - Berlin Edition,Berlin Health Innovators,Berlin Conference Hall,Berlin,76,Healthcare,83,328320
+1097,Open Banking & API Security,London Fintech Circle,London Wharf Tech Center,London,105,Finance & Fintech,115,403200
+1098,Smart Cities & Sustainable Transport,Chicago Eco-Architects,Chicago Seminar Hall,Chicago,97,Sustainability,116,341440
+1099,Cloud Native & Serverless Meetup - Bangalore Edition,Bangalore Cloud Engineers,Bangalore Mart Suite,Bangalore,107,AI & Technology,128,402320
+1100,Influencer Marketing Campaigns at Scale,New York Digital Marketers,New York Hills Event Hall,New York,89,Marketing & Growth,106,299040
+1101,Healthcare Startups Pitch Night,San Francisco HealthTech,San Francisco Seminar Hall,San Francisco,194,Healthcare,252,558720
+1102,Conversion Rate Optimization (CRO) - Tokyo Edition,Tokyo Growth Hackers,Tokyo Innovation Hub,Tokyo,75,Marketing & Growth,97,216000
+1103,Algorithmic Trading Strategies,Sydney Algo Traders,Sydney Financial Center,Sydney,84,Finance & Fintech,92,201600
+1104,Digital Health & Patient Care Innovation,Singapore Tech Network,Singapore Innovation Lab,Singapore,52,Healthcare,67,133120
+1105,Machine Learning for Fraud Detection - New York Edition,New York Quantitative Traders,New York District Suite,New York,79,Finance & Fintech,94,208560
+1106,Healthcare Startups Pitch Night,Bangalore HealthTech,Bangalore Seminar Hall,Bangalore,151,Healthcare,196,410720
+1107,Decentralized Finance & Blockchain Tech,Chicago Pioneers NYC,Chicago Street Conference Room,Chicago,131,Finance & Fintech,157,524000
+1108,Growth Hacking & Product Metrics - Bangalore Edition,Bangalore Product Managers,Bangalore Workspace,Bangalore,185,Product & Design,222,518000
+1109,Conversion Rate Optimization (CRO),New York Growth Hackers,New York Innovation Hub,New York,76,Marketing & Growth,83,139840
+1110,CleanTech & Renewable Energy Startups,Sydney Alliance SF,Sydney Eco Center,Sydney,120,Sustainability,156,432000
+1111,Algorithmic Trading Strategies - Chicago Edition,Chicago Algo Traders,Chicago Financial Center,Chicago,71,Finance & Fintech,78,204480
+1112,UX Research for Dynamic Web Apps,Mumbai UX Advocates,Mumbai London,Mumbai,110,Product & Design,132,264000
+1113,Growth Hacking & Product Metrics,Bangalore Product Managers,Bangalore Workspace,Bangalore,176,Product & Design,211,408320
+1114,Decentralized Finance & Blockchain Tech - Mumbai Edition,Mumbai Pioneers NYC,Mumbai Street Conference Room,Mumbai,140,Finance & Fintech,182,672000
+1115,Building Agentic Workflows,Singapore Code Club,Singapore Galaxy,Singapore,231,AI & Technology,277,1219680
+1116,Design Systems for Enterprise Apps,Berlin Product Designers,Berlin Studio SF,Berlin,75,Product & Design,90,210000
+1117,CleanTech & Renewable Energy Startups - Berlin Edition,Berlin Alliance SF,Berlin Eco Center,Berlin,138,Sustainability,165,529920
+1118,B2B SaaS Growth & SEO Strategies,Tokyo Marketers Guild,Tokyo Times Square,Tokyo,92,Marketing & Growth,119,242880
+1119,Smart Cities & Sustainable Transport,Bangalore Eco-Architects,Bangalore Seminar Hall,Bangalore,91,Sustainability,109,320320
+1120,Influencer Marketing Campaigns at Scale - Singapore Edition,Singapore Digital Marketers,Singapore Hills Event Hall,Singapore,139,Marketing & Growth,166,533760
+1121,Online Course Design & Gamification,Singapore EdTech Developers,Singapore Studio,Singapore,91,Education,109,305760
+1122,Influencer Marketing Campaigns at Scale,Berlin Digital Marketers,Berlin Hills Event Hall,Berlin,115,Marketing & Growth,138,487600
+1123,Conversion Rate Optimization (CRO) - Tokyo Edition,Tokyo Growth Hackers,Tokyo Innovation Hub,Tokyo,47,Marketing & Growth,56,86480
+1124,Smart Cities & Sustainable Transport,Berlin Eco-Architects,Berlin Seminar Hall,Berlin,99,Sustainability,128,506880
+1125,Product Management in the AI Era,New York PM Collective,New York Central Workspace,New York,128,Product & Design,140,501760
+1126,Customer Journey Mapping Workshop - San Francisco Edition,San Francisco Creative Minds,San Francisco Design Space,San Francisco,62,Product & Design,80,138880
+1127,Climate Tech Financing & ESG Metrics,San Francisco Green Finance,San Francisco City Labs,San Francisco,83,Sustainability,107,325360
+1128,Design Systems for Enterprise Apps,Singapore Product Designers,Singapore Studio SF,Singapore,100,Product & Design,130,352000
+1129,Next-Gen Biotech Research - San Francisco Edition,San Francisco Biotech Network,San Francisco College Auditoria,San Francisco,94,Healthcare,103,428640
+1130,Deep Dive into Vector Databases,New York AI Developers,New York Shard Suite,New York,108,AI & Technology,129,259200
+1131,Next-Gen Biotech Research,Singapore Biotech Network,Singapore College Auditoria,Singapore,96,Healthcare,105,337920
+1132,Zero-Budget Product Launch Tactics - Tokyo Edition,Tokyo Startups & Marketing,Tokyo Club,Tokyo,187,Marketing & Growth,243,508640
+1133,Growth Hacking & Product Metrics,Bangalore Product Managers,Bangalore Workspace,Bangalore,153,Product & Design,183,538560
+1134,Conversion Rate Optimization (CRO),Bangalore Growth Hackers,Bangalore Innovation Hub,Bangalore,71,Marketing & Growth,85,142000
+1135,Design Systems for Enterprise Apps - Berlin Edition,Berlin Product Designers,Berlin Studio SF,Berlin,77,Product & Design,100,203280
+1136,CleanTech & Renewable Energy Startups,Bangalore Alliance SF,Bangalore Eco Center,Bangalore,86,Sustainability,111,364640
+1137,Machine Learning at Scale,Sydney Tech Circle,Sydney Co-Working Hub,Sydney,87,AI & Technology,104,285360
+1138,Telehealth Regulatory Standards - Sydney Edition,Sydney Health Innovators,Sydney Conference Hall,Sydney,67,Healthcare,80,273360
+1139,CleanTech & Renewable Energy Startups,Chicago Alliance SF,Chicago Eco Center,Chicago,142,Sustainability,170,602080
+1140,Deep Dive into Vector Databases,Sydney AI Developers,Sydney Shard Suite,Sydney,103,AI & Technology,123,230720
+1141,Product Management in the AI Era - Chicago Edition,Chicago PM Collective,Chicago Central Workspace,Chicago,95,Product & Design,114,319200
+1142,Open Banking & API Security,Chicago Fintech Circle,Chicago Wharf Tech Center,Chicago,126,Finance & Fintech,151,544320
+1143,Product Management in the AI Era,San Francisco PM Collective,San Francisco Central Workspace,San Francisco,141,Product & Design,183,518880
+1144,UX Research for Dynamic Web Apps - Singapore Edition,Singapore UX Advocates,Singapore London,Singapore,62,Product & Design,74,158720
+1145,UX Research for Dynamic Web Apps,Mumbai UX Advocates,Mumbai London,Mumbai,92,Product & Design,110,184000
+1146,Digital Health & Patient Care Innovation,Berlin Tech Network,Berlin Innovation Lab,Berlin,54,Healthcare,70,103680
+1147,Online Course Design & Gamification - Berlin Edition,Berlin EdTech Developers,Berlin Studio,Berlin,84,Education,92,295680
+1148,Decentralized Finance & Blockchain Tech,Berlin Pioneers NYC,Berlin Street Conference Room,Berlin,87,Finance & Fintech,113,438480
+1149,Smart Cities & Sustainable Transport,Singapore Eco-Architects,Singapore Seminar Hall,Singapore,123,Sustainability,147,551040

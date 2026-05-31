@@ -1,0 +1,17 @@
+[
+  {"text": "I need to cancel purchase ORD-10482. It has not shipped yet."},
+  {"text": "When will order ORD-99231 arrive? I ordered five days ago."},
+  {"text": "I returned a jacket last week. Can you tell me when my refund will post?"},
+  {"text": "How do I change the shipping address on order ORD-55012?"},
+  {"text": "Where is my invoice for order ORD-22019?"},
+  {"text": "This is the third time my order arrived damaged. I want compensation, not another apology."},
+  {"text": "I was charged twice for order ORD-77801 and nobody has fixed it after two weeks."},
+  {"text": "I cannot log in after the password reset. The app crashes every time on Android."},
+  {"text": "Stop sending bots. I need a supervisor now — I will dispute the charge with my bank."},
+  {"text": "My package shows delivered but I never received it."},
+  {"text": "I want to unsubscribe from marketing emails immediately."},
+  {"text": "The wrong item was sent. I ordered blue sneakers, got red boots."},
+  {"text": "Someone used my card on your site without permission."},
+  {"text": "Your refund policy says 30 days but support told me 7 — which is correct?"},
+  {"text": "I am a lawyer and will file a complaint unless this billing error is fixed today."}
+]
